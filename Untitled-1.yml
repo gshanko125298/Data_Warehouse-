@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    restart: always
+
+
+ docker run --name pgsql -e POSTGRES_PASSWORD=root -p 5422:5432 postgres
+
+docker run -it \
+    -e POSTGRES_USER = "pgsql" \
+    -e POSTGRES_PASSWORD = "root" \
+    -e POSTGRES_DB = "my_taxi" \
+    -v c:/Users/Genet Shanko/Data-Engineering_for_traffic-app/2_docker_sql/my_taxi_postgres_data:/var/lib/postgresql/data \
+    -P 5422:5432
+    --name IPaddress :"172.17.0.9"
+   postgres:15
+
+docker run -it \
+    -e POSTGRES_USER= "docker run -p 5050:80 -e 'PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org' -e 'PGADMIN_DEFAULT_PASSWORD=admin' -d --name pgadmin4 dpage/pgadmin4"
+    
+    
+    
+    
+    -e POSTGRES_PASSWORD= "root" \
+    -e POSTGRES_DB= "" \    
+    -v c:/Users/Genet Shanko/Data-Engineering_for_traffic-app/2_docker_sql/my_taxi_postgres_data:/var/lib/postgresql/data \
+    -p 5432:5432\
+  postgres:15
+  
+postgres:13
+"C:\Program Files\PostgreSQL\13\data"
+
+
+https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
+url="https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data?select=yellow_tripdata_2015-01.csv"
+python ingest_data.py\
+  --user=postgres
+  --password= root
+  --host = 172.17.0.9
+  --port= 5432
+  --db= 
+  --table_name= yellow_tripdata 
+  --url=${url}
+
+    csv_name='output.csv'
